@@ -122,6 +122,10 @@ Date:   Sat May 12 09:31:01 2018 +0900
 
 ```
 
+Windows の TortoiseGit の場合、ログ表示時に Follow renames オプションを入れておくと、コマンドラインの --follow オプションと同等のことができそう。
+
+![Follow renames](git_copy_memo_tortiosegit_01.png)
+
 ここまでできたところで `--follow` オプションを調べると、以下の記事がヒットした。より詳しく追いかけることができそうだ。
 
 https://qiita.com/yukimura1227/items/fbb076db61a2e43a32e3
