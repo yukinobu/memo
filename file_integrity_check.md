@@ -53,7 +53,7 @@ find -type f -iname '*.nef' -o -iname '*.nrw' | while read f; do test `exiftool 
 MediaInfo の CLI 版を利用し、Duration が取得できなければ破損していると判断。浅い検査なので、途中の一部が破損しているようなケースは検出できない。
 
 ```shell
-find -type f -iname '*.avi' -o -iname '*.wmv' -o -iname '*.mpg' -o -iname '*.mp4' -o -iname '*.m4v' -o -iname '*.mkv' | while read f; do test `MediaInfo "${f}" | grep -E '^Duration' | wc -l` -gt 0 || echo "${f}"; done
+find -type f -iname '*.avi' -o -iname '*.wmv' -o -iname '*.mpg' -o -iname '*.mp4' -o -iname '*.m4v' -o -iname '*.mkv' -o -iname '*.mov' -o -iname '*.rm' | while read f; do test `MediaInfo "${f}" | grep -E '^Duration' | wc -l` -gt 0 || echo "${f}"; done
 ```
 
 参考資料
