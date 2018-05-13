@@ -40,6 +40,10 @@ find -type f -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp
 
 VLC などでできないか調査中。
 
+- https://stackoverflow.com/questions/30969307/convert-a-video-in-a-vlc-command-line#30980349
+- https://wiki.videolan.org/VLC_command-line_help/
+- https://wiki.videolan.org/Transcode
+
 ffmpeg による方法があるようだが、手元ではうまく動いていない。
 
 - https://superuser.com/questions/100288/how-can-i-check-the-integrity-of-a-video-file-avi-mpeg-mp4
