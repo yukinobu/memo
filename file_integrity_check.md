@@ -45,8 +45,20 @@ VLC などでできないか調査中。
 - https://wiki.videolan.org/Transcode
 
 ```shell
-/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc -I dummy -vvv "repetitive-crash.mp4" :sout='#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=__dummy.mp4}'
+/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy valid-h265.mp4 :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
 ```
+
+上記でひとまず変換は動作した。戻り値を調べる `echo $?` の結果は `0` だった。
+
+```shell
+/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy corrupted.avi :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
+```
+
+破損ファイルに対する変換を試みた結果、`echo $?` の結果は `0` で変化はなかった。
+
+出力された __dummy.mpg の大きさは 4 バイトだった。確認に使えるかもしれないが…途中で壊れたファイルは判定できないかも知れない。
+
+
 
 ffmpeg による方法があるようだが、手元ではうまく動いていない。
 
