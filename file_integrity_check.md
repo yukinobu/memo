@@ -29,7 +29,7 @@ find -type f -iname '*.pdf' | while read f; do pdfinfo "${f}" >/dev/null 2>&1 ||
 ImageMagick の `identify` コマンドで確認。`-verbose` オプションをつけることで、画像の一部が破損したような場合でも検出できた。
 
 ```shell
-find -type f -iname '*.jpg' \( -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' \) | while read f; do magick identify -verbose "${f}" >/dev/null 2>&1 || echo "${f}"; done
+find -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' \) | while read f; do magick identify -verbose "${f}" >/dev/null 2>&1 || echo "${f}"; done
 ```
 
 参考資料
