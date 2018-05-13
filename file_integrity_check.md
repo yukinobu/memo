@@ -38,6 +38,8 @@ find -type f -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp
 
 ## 動画系
 
+### VLC
+
 VLC などでできないか調査中。
 
 - https://stackoverflow.com/questions/30969307/convert-a-video-in-a-vlc-command-line#30980349
@@ -45,7 +47,6 @@ VLC などでできないか調査中。
 - https://wiki.videolan.org/Transcode
 - https://videoconverter.wondershare.com/vlc/7-vlc-command-lines-you-need-to-know.html
 - https://superuser.com/questions/595177/how-to-retrieve-video-file-information-from-command-line-under-linux
-- https://mediaarea.net/en/MediaInfo
 
 ```shell
 /cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy valid-h265.mp4 :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
@@ -53,15 +54,25 @@ VLC などでできないか調査中。
 
 上記でひとまず変換は動作した。戻り値を調べる `echo $?` の結果は `0` だった。
 
+#### corrupted1.avi : 先頭から化けているファイル
+
 ```shell
-/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy corrupted.avi :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
+/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy corrupted1.avi :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
 ```
 
-破損ファイルに対する変換を試みた結果、`echo $?` の結果は `0` で変化はなかった。
+破損ファイルに対する変換を試みた。このファイルは先頭部分から化けているもの。上記の結果、`echo $?` の結果は `0` で変化はなかった。出力された `__dummy.mpg` の大きさは 4 バイトだった。確認に使えるかもしれないが…途中で壊れたファイルは判定できないかも知れない。
 
-出力された `__dummy.mpg` の大きさは 4 バイトだった。確認に使えるかもしれないが…途中で壊れたファイルは判定できないかも知れない。
+#### corrupted5.m4v : 中間が化けているファイル
+
+```shell
+/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy corrupted5.m4v :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
+```
+
+別の破損ファイルに対する変換を試みた。このファイルは中間が化けているもの。`echo $?` の結果が `130` となり、何らかの失敗が示唆される。出力された `__dummy.mpg` は動画の実時間分がありそうだが、再生してみるとうまくシークできないようだ。
 
 
+
+## ffmpeg
 
 ffmpeg による方法があるようだが、手元ではうまく動いていない。
 
