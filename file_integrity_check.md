@@ -40,7 +40,7 @@ find -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.
 
 `exiftool` コマンドを使用して Image Size を取得できなければ破損していると判断。浅い検査なので、途中の一部が破損しているようなケースは検出できない。
 
-```
+```shell
 find -type f \( -iname '*.nef' -o -iname '*.nrw' \) | while read f; do test `exiftool "${f}" | grep -E '^Image Size' | wc -l` -gt 0 || echo "${f}"; done
 ```
 
