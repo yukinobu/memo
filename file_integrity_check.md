@@ -14,7 +14,7 @@ find -type f -iname '*.zip' -o -iname '*.docx' -o -iname '*.xlsx' -o -iname '*.p
 
 ## pdf
 
-poppler パッケージの`pdfinfo` コマンドで確認。おそらく、メタデータを中心に確認する浅い検査なので、ページの一部が破損しているようなケースは検出できないと思われる。
+poppler パッケージの `pdfinfo` コマンドで確認。おそらく、メタデータを中心に確認する浅い検査なので、ページの一部が破損しているようなケースは検出できないと思われる。
 
 ```shell
 find -type f -iname '*.pdf' | while read f; do pdfinfo "${f}" >/dev/null 2>&1 || echo "${f}"; done
@@ -35,3 +35,15 @@ find -type f -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp
 参考資料
 
 - https://stackoverflow.com/questions/17757114/imagemagick-to-verify-image-integrity
+
+## 動画系
+
+MediaInfo の CLI 版を利用し、Duration が取得できなければ破損していると判断。浅い検査なので、途中の一部が破損しているようなケースは検出できない。
+
+```shell
+find -type f -iname '*.avi' -o -iname '*.wmv' -o -iname '*.mpg' -o -iname '*.mp4' -o -iname '*.m4v' -o -iname '*.mkv' | while read f; do test `MediaInfo "${f}" | grep -e '^Duration' | wc -l` -gt 0 || echo "${f}"; done
+```
+
+参考資料
+
+- https://mediaarea.net/en/MediaInfo
