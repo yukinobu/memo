@@ -63,27 +63,6 @@ VLC などでできないか調査中。
 
 
 
-MediaInfo コマンドの CLI 版を利用し、Duration 有無で判断するアイデア。
-
-```shell
-# できた版
-find -type f -iname '*.avi' -o -iname '*.wmv' -o -iname '*.mpg' -o -iname '*.mp4' -o -iname '*.m4v' | while read f; do test `MediaInfo "${f}" | grep -e '^Duration' | wc -l` -gt 0 || echo "${f}"; done
-
-# テスト
-MediaInfo * | grep -e '^Duration'
-test `MediaInfo "${f}" | grep -e '^Duration' | wc -l` -gt 0 || echo "${f}"
-test `MediaInfo corrupted1.avi | grep -e '^Duration' | wc -l` -gt 0 || echo 1  # 破損判定OK
-test `MediaInfo corrupted1.avi | grep -e '^Duration' | wc -l` -gt 0 && echo 1
-test `MediaInfo valid-h265.mp4 | grep -e '^Duration' | wc -l` -gt 0 || echo 1
-test `MediaInfo valid-h265.mp4 | grep -e '^Duration' | wc -l` -gt 0 && echo 1  # 正常判定OK
-```
-
-
-
-
-
-
-
 ffmpeg による方法があるようだが、手元ではうまく動いていない。
 
 - https://superuser.com/questions/100288/how-can-i-check-the-integrity-of-a-video-file-avi-mpeg-mp4
