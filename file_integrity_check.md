@@ -44,6 +44,10 @@ VLC などでできないか調査中。
 - https://wiki.videolan.org/VLC_command-line_help/
 - https://wiki.videolan.org/Transcode
 
+```shell
+/cygdrive/c/Program\ Files/VideoLAN/VLC/vlc -I dummy -vvv "repetitive-crash.mp4" :sout='#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=__dummy.mp4}'
+```
+
 ffmpeg による方法があるようだが、手元ではうまく動いていない。
 
 - https://superuser.com/questions/100288/how-can-i-check-the-integrity-of-a-video-file-avi-mpeg-mp4
