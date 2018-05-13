@@ -43,6 +43,9 @@ VLC などでできないか調査中。
 - https://stackoverflow.com/questions/30969307/convert-a-video-in-a-vlc-command-line#30980349
 - https://wiki.videolan.org/VLC_command-line_help/
 - https://wiki.videolan.org/Transcode
+- https://videoconverter.wondershare.com/vlc/7-vlc-command-lines-you-need-to-know.html
+- https://superuser.com/questions/595177/how-to-retrieve-video-file-information-from-command-line-under-linux
+- https://mediaarea.net/en/MediaInfo
 
 ```shell
 /cygdrive/c/Program\ Files/VideoLAN/VLC/vlc --no-repeat --no-loop -I dummy valid-h265.mp4 :sout='#transcode{vcodec=mp2v,vb=512,acodec=mp2a,ab=32,scale=1,channels=2,audio-sync}:std{access=file, mux=ps,dst="__dummy.mpg"}' vlc://quit
@@ -56,7 +59,28 @@ VLC などでできないか調査中。
 
 破損ファイルに対する変換を試みた結果、`echo $?` の結果は `0` で変化はなかった。
 
-出力された __dummy.mpg の大きさは 4 バイトだった。確認に使えるかもしれないが…途中で壊れたファイルは判定できないかも知れない。
+出力された `__dummy.mpg` の大きさは 4 バイトだった。確認に使えるかもしれないが…途中で壊れたファイルは判定できないかも知れない。
+
+
+
+MediaInfo コマンドの CLI 版を利用し、Duration 有無で判断するアイデア。
+
+```shell
+# できた版
+find -type f -iname '*.avi' -o -iname '*.wmv' -o -iname '*.mpg' -o -iname '*.mp4' -o -iname '*.m4v' | while read f; do test `MediaInfo "${f}" | grep -e '^Duration' | wc -l` -gt 0 || echo "${f}"; done
+
+# テスト
+MediaInfo * | grep -e '^Duration'
+test `MediaInfo "${f}" | grep -e '^Duration' | wc -l` -gt 0 || echo "${f}"
+test `MediaInfo corrupted1.avi | grep -e '^Duration' | wc -l` -gt 0 || echo 1  # 破損判定OK
+test `MediaInfo corrupted1.avi | grep -e '^Duration' | wc -l` -gt 0 && echo 1
+test `MediaInfo valid-h265.mp4 | grep -e '^Duration' | wc -l` -gt 0 || echo 1
+test `MediaInfo valid-h265.mp4 | grep -e '^Duration' | wc -l` -gt 0 && echo 1  # 正常判定OK
+```
+
+
+
+
 
 
 
