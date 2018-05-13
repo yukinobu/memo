@@ -32,6 +32,8 @@ ImageMagick の `identify` コマンドで確認。おそらく、メタデー�
 find -type f -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' | while read f; do magick identify "${f}" >/dev/null 2>&1 || echo "${f}"; done
 ```
 
+identify に -verbose オプションをつけると、より時間をかけて検査されるようだ。ただし、検査結果が信頼できるかどうかは未確認。
+
 参考資料
 
 - https://stackoverflow.com/questions/17757114/imagemagick-to-verify-image-integrity
