@@ -20,6 +20,10 @@ poppler パッケージの`pdfinfo` コマンドで確認。おそらく、メ�
 find -type f -iname '*.pdf' | while read f; do pdfinfo "${f}" >/dev/null 2>&1 || echo "${f}"; done
 ```
 
+参考資料
+
+- https://superuser.com/questions/580887/check-if-pdf-files-are-corrupted-using-command-line-on-linux
+
 ## 画像系
 
 ImageMagick の `identify` コマンドで確認。おそらく、メタデータを中心に確認する浅い検査なので、画像の一部が破損しているようなケースは検出できないと思われる。
@@ -27,6 +31,10 @@ ImageMagick の `identify` コマンドで確認。おそらく、メタデー�
 ```shell
 find -type f -iname '*.jpg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' | while read f; do magick identify "${f}" >/dev/null 2>&1 || echo "${f}"; done
 ```
+
+参考資料
+
+- https://stackoverflow.com/questions/17757114/imagemagick-to-verify-image-integrity
 
 ## 動画系
 
