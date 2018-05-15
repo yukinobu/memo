@@ -24,7 +24,7 @@ ExifTool が対応する GPS ログファイルの形式を出力できれば何
 
 GPS ログの記録を開始。myTracks の場合「Start recording」と「Start Dairy mode」を実行する。
 
-![](geotag_01.png)
+![](geotag_01.jpg)
 
 ### （カメラ）時計を合わせる
 
@@ -38,7 +38,7 @@ GPS ログの記録を開始。myTracks の場合「Start recording」と「Star
 
 GPS ログの記録を終了。myTracks の場合「Stop recording」と「Stop Dairy mode」
 
-![](geotag_02.png)
+![](geotag_02.jpg)
 
 ### 写真を取り出し
 
