@@ -20,7 +20,7 @@
 
 ## ドングルレシーバーAnycast M9 Plus 
 
-Chromecast、AirPlay、Miracastなど複数の方式に対応した、WiFi → HDMI変換器。
+Chromecast、AirPlay、Miracastなど複数の方式に対応した、WiFi→HDMI変換器。
 
 https://www.amazon.co.jp/dp/B078P1Q8SC/
 
@@ -40,7 +40,7 @@ https://www.amazon.co.jp/dp/B078P1Q8SC/
 
 テレビのHDMI入力端子が凹型の場所にあり、ドングルレシーバーを挿せないことがあったため、急遽購入。本来はHDMI延長ケーブルで良いため、御役御免の予定。
 
-# これまでのトラブル
+# トラブルシューティング
 
 ## HDMI端子周辺の形状と干渉
 
@@ -56,7 +56,11 @@ https://www.amazon.co.jp/dp/B078P1Q8SC/
 
 ## AirPlay切断
 
+iPhoneの写真を（写真アプリやGoogleフォトアプリを用いて）映していたところ、何度かAirPlayが切断された。
 
+切断の原因は不明だが、ドングルレシーバー用のUSB ACアダプターを別のものに換えて様子を見たい。
 
-原因は
+## Miracastできない
+
+Windows PCのワイヤレスディスプレイとしての接続が、一度はできたのですが今はできなくなっています。
 
