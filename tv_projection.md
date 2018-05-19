@@ -20,7 +20,7 @@
 
 ## ドングルレシーバーAnycast M9 Plus 
 
-Chromecast、AirPlay、Miracastなど複数の方式に対応した、WiFi→HDMI変換器。
+Chromecast、AirPlay、Miracastなど複数の方式に対応した、Wi-Fi→HDMI変換器。
 
 https://www.amazon.co.jp/dp/B078P1Q8SC/
 
@@ -63,3 +63,7 @@ iPhoneの写真を（写真アプリやGoogleフォトアプリを用いて）�
 ## Miracastできない
 
 Windows PCのワイヤレスディスプレイとしての接続が、一度はできたのですが今はできなくなっています。
+
+## モバイルルーターとの相性
+
+ドングルレシーバーAnycastは、自身がWi-Fiアクセスポイントになる方式のため、モバイルルーターとは相性がよくない。各端末は、モバイルルーターとAnycastに同時には接続できないので、テレカンファレンスなどの際には差し支えることがある。
