@@ -62,7 +62,15 @@ iPhoneの写真を（写真アプリやGoogleフォトアプリを用いて）�
 
 ## Miracastできない
 
-Windows PCのワイヤレスディスプレイとしての接続が、一度はできたのですが今はできなくなっています。
+Windows PCのワイヤレスディスプレイとしての接続は、一度は成功したことがあるが、今は接続できない。
+
+原因はよく分らないが、
+
+* 接続試行中にはディスプレイ側の表示が「Waiting for connection」から「Connection in progress」に変化したので、何らかの接続はできているようだ
+* 接続試行中のPCで `ipconfig` を実施したところ、IPアドレスとして 192.168.137.1 が設定されていたので、DHCP関係の通信は問題ないと思われる
+* 接続試行中のPCでWiresharkを用いたパケットキャプチャを試みたが、原因の究明に役立ちそうな情報は取得できていない
+* 以下の記事は参考になるかも知れないので、これから確認したい
+  https://answers.microsoft.com/ja-jp/windows/forum/windows_10-hardware/windows/28eb21ce-9e11-469e-be64-99865b8b3433
 
 ## モバイルルーターとの相性
 
