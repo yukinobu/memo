@@ -18,7 +18,7 @@
 
 執筆時点（2018/05）での道具セットは以下。
 
-![IMG_1596_s](../../../Desktop/0/0/IMG_1596_s.jpg) ![IMG_1598_s](../../../Desktop/0/0/IMG_1598_s.jpg)
+![tv_projection_tool_01](tv_projection_tool_01.jpg)
 
 ## ワイヤレスディスプレイアダプタ Anycast M9 Plus
 
