@@ -18,6 +18,8 @@
 
 執筆時点（2018/05）での道具セットは以下。
 
+![tv_projection_tool_01](tv_projection_tool_01.jpg)
+
 ## ドングルレシーバーAnycast M9 Plus 
 
 Chromecast、AirPlay、Miracastなど複数の方式に対応した、Wi-Fi→HDMI変換器。
