@@ -36,11 +36,33 @@ GPS ログの記録を開始。myTracks の場合「Start recording」と「Star
 
 ### （iPhone）GPS 記録をエクスポート
 
-GPS ログの記録を終了。myTracks の場合「Stop recording」と「Stop Dairy mode」
+GPS ログの記録を終了。myTracks の場合「Stop recording」で記録を終了してから、
 
 ![](geotag_02.jpg)
 
+ファイル一覧を開き、
 
+![](geotag_03.png)
+
+「Edit」を選んでから、
+
+![](geotag_04.png)
+
+必要なファイルを選択して、メニューを表示。
+
+![](geotag_05.png)
+
+オプションを選択してからメニューを表示し、
+
+![](geotag_06.png)
+
+保存先はどこでもいいが、筆者はよく Files を使っている。
+
+![](geotag_07.png)
+
+フォルダもどこでも良いが、筆者は iCloud Drive をよく使っている。
+
+![](geotag_08.png)
 
 うまくエクスポートできると、myTracks.zip が得られる。以下は cygwin で内容を確認した例。
 
