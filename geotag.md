@@ -64,7 +64,7 @@ GPS ログの記録を終了。myTracks の場合「Stop recording」で記録�
 
 ![](geotag_08.png)
 
-うまくエクスポートできると、myTracks.zip が得られる。以下は cygwin で内容を確認した例。
+うまくエクスポートできると、myTracks.zip が得られる。以下は Windows cygwin で内容を確認した例。
 
 ```shell
 $ unzip -v /cygdrive/c/Users/username/iCloudDrive/myTracks.zip
@@ -84,19 +84,17 @@ Archive:  myTracks.zip
 18747363          3400309  82%                            9 files
 ```
 
-
-
 ### 写真を取り出し
 
 カメラから写真を取り出すか現像して、JPEG 形式の写真を準備。
 
 ### ジオタギング
 
+JPEG があるフォルダで exiftool を実行。以下は Windows cygwin での実行例。
 
-
-
-
-
+```bash
+exiftool -geotag `cygpath -w /path/to/gpx/`*.gpx '-geotime<${createdate}+09:00' -api GeoMaxIntSecs=86400 -api GeoMaxExtSecs=86400 *.jpg;
+```
 
 [ExifTool by Phil Harvey](https://sno.phy.queensu.ca/~phil/exiftool/)
 
