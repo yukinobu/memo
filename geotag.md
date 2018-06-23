@@ -96,5 +96,10 @@ JPEG があるフォルダで exiftool を実行。以下は Windows cygwin で�
 exiftool -geotag `cygpath -w /path/to/gpx/`*.gpx '-geotime<${createdate}+09:00' -api GeoMaxIntSecs=86400 -api GeoMaxExtSecs=86400 *.jpg;
 ```
 
-[ExifTool by Phil Harvey](https://sno.phy.queensu.ca/~phil/exiftool/)
+* `'-geotime<${createdate}+09:00'` オブションは、タイムゾーンの修正。Exif 情報はローカル時間で記録されるが GPS 情報は UTC のはずなので、その時差を修正している。
+* `-api GeoMaxIntSecs=86400`, `-api GeoMaxExtSecs=86400` オプションは、GPS 記録の時刻と撮影時刻がずれた場合への対処。デフォルトは 1800 秒なので、30 分のずれを許容し線形補完するようになっているが、これを 1 日にまで拡張している。myTracks は、建物内などでは長時間 GPS 記録をとらない場合があるので、このオブションがないと建物内で撮影した写真は位置情報なしになる場合があった。
+
+参考資料
+
+* [Geotagging with ExifTool](https://sno.phy.queensu.ca/~phil/exiftool/geotag.html)
 
